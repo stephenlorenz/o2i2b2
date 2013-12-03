@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="o2i2b2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="sources"/>
+        <xs:element ref="ontology"/>
+        <xs:element ref="concepts"/>
+        <xs:element ref="patients"/>
+        <xs:element ref="encounters"/>
+        <xs:element ref="providers"/>
+        <xs:element ref="observations"/>
+      </xs:sequence>
+      <xs:attribute name="orgCode" use="required" type="xs:NCName"/>
+      <xs:attribute name="orgName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="source"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ontology">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="meta"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="meta">
+    <xs:complexType>
+      <xs:attribute name="conceptCode" use="required" type="xs:NCName"/>
+      <xs:attribute name="name" use="required" type="xs:NCName"/>
+      <xs:attribute name="path" use="required" type="xs:NCName"/>
+      <xs:attribute name="tooltip" use="required"/>
+      <xs:attribute name="leaf" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="concepts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="concept"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="concept">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="source"/>
+      </xs:sequence>
+      <xs:attribute name="code" use="required" type="xs:NCName"/>
+      <xs:attribute name="conceptClass" use="required"/>
+      <xs:attribute name="dataType" use="required"/>
+      <xs:attribute name="description" use="required"/>
+      <xs:attribute name="hiAbsolute" use="required" type="xs:decimal"/>
+      <xs:attribute name="hiCritical" use="required" type="xs:decimal"/>
+      <xs:attribute name="hiNormal" use="required" type="xs:decimal"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="lowAbsolute" use="required" type="xs:decimal"/>
+      <xs:attribute name="lowCritical" use="required" type="xs:decimal"/>
+      <xs:attribute name="lowNormal" use="required" type="xs:decimal"/>
+      <xs:attribute name="name" use="required"/>
+      <xs:attribute name="path" use="required"/>
+      <xs:attribute name="precision" use="required" type="xs:integer"/>
+      <xs:attribute name="synonym" use="required"/>
+      <xs:attribute name="units" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="patients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="patient"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="patient">
+    <xs:complexType>
+      <xs:attribute name="age" use="required" type="xs:integer"/>
+      <xs:attribute name="birthdate" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="deathdate" use="required"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="language" use="required"/>
+      <xs:attribute name="marital_status" use="required"/>
+      <xs:attribute name="race" use="required"/>
+      <xs:attribute name="religion" use="required"/>
+      <xs:attribute name="sex" use="required"/>
+      <xs:attribute name="zip" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="encounters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="encounter"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="encounter">
+    <xs:complexType>
+      <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="location" use="required" type="xs:NCName"/>
+      <xs:attribute name="patientId" use="required" type="xs:NCName"/>
+      <xs:attribute name="timestamp" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="providers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="provider"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="provider">
+    <xs:complexType>
+      <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="lastFirstName" use="required"/>
+      <xs:attribute name="path" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="observations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="observation"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="observation">
+    <xs:complexType>
+      <xs:attribute name="conceptCode" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="datetime" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="encounterId" use="required" type="xs:NCName"/>
+      <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="location" use="required" type="xs:NCName"/>
+      <xs:attribute name="patientId" use="required" type="xs:NCName"/>
+      <xs:attribute name="providerId" use="required" type="xs:NCName"/>
+      <xs:attribute name="value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="source">
+    <xs:complexType>
+      <xs:attribute name="code" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="description" type="xs:NCName"/>
+      <xs:attribute name="hl7" type="xs:NMTOKEN"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="name" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

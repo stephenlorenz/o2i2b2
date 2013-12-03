@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<bean id="propertyConfigurer" class="org.o2i2b2.utils.springframework.ExposablePropertyPaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+			</list>
+		</property> 
+	</bean>
+
+	<bean id="metadataDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${metadataDao.connection.dbcp.driverClassName}"/>
+		<property name="url" value="${metadataDao.connection.dbcp.url}"/>
+		<property name="username" value="${metadataDao.connection.dbcp.username}"/>
+		<property name="password" value="${metadataDao.connection.dbcp.password}"/>
+	</bean>
+
+	<bean id="starSchemaDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${starSchemaDao.connection.dbcp.driverClassName}"/>
+		<property name="url" value="${starSchemaDao.connection.dbcp.url}"/>
+		<property name="username" value="${starSchemaDao.connection.dbcp.username}"/>
+		<property name="password" value="${starSchemaDao.connection.dbcp.password}"/>
+	</bean>
+	
+	<bean id="sourceDataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${sourceDao.connection.dbcp.driverClassName}"/>
+		<property name="url" value="${sourceDao.connection.dbcp.url}"/>
+		<property name="username" value="${sourceDao.connection.dbcp.username}"/>
+		<property name="password" value="${sourceDao.connection.dbcp.password}"/>
+	</bean>
+	
+	<bean id="metadataJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="metadataDataSource" />
+	</bean>
+	
+	<bean id="starSchemaJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="starSchemaDataSource" />
+	</bean>
+	
+	<bean id="sourceJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="sourceDataSource" />
+	</bean>
+
+</beans>

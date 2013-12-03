@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<o2i2b2 orgCode="abc123" orgName="Sample Organization">
+
+    <sources>
+        <source id="LOINC" code="123a" name="ab2c" description="abc123" hl7="3fd"/>
+        <source id="ICD-9" code="432b" />        
+    </sources>
+    <ontology>
+        <meta conceptCode="123abc" name="abc" path="abc" tooltip="321" leaf="true" />
+        <meta conceptCode="456def" name="dec" path="abc" tooltip="" leaf="false" />
+    </ontology>
+    <concepts>
+        <concept id="abc0" path="" code="abc0" name="" description="" conceptClass="" dataType="" synonym="" hiAbsolute="0.0" hiCritical="0.0" hiNormal="0.0" lowAbsolute="0.0" lowCritical="0.0" lowNormal="0.0" units="" precision="0" ></concept>
+        <concept id="abc1" path="" code="def1" name="" description="" conceptClass="" dataType="" synonym="" hiAbsolute="0.0" hiCritical="0.0" hiNormal="0.0" lowAbsolute="0.0" lowCritical="0.0" lowNormal="0.0" units="" precision="0" >
+            <source id="LOINC" code="123a" name="ab2c" hl7="3fd"/>
+            <source id="ICD-9" code="432b" />
+        </concept>
+    </concepts>
+    <patients>
+        <patient id="abc0" sex="" birthdate="2001-01-01" age="0" deathdate="" language="" race="" marital_status="" religion="" zip="" />
+        <patient id="abc1" sex="" birthdate="2001-01-01" age="0" deathdate="2001-01-01" language="" race="" marital_status="" religion="" zip="" />
+    </patients>
+    <encounters>
+        <encounter id="123abc" patientId="abc" timestamp="2001-01-01" location="abc" />
+        <encounter id="123def" patientId="abc" timestamp="2001-01-01" location="abc" />
+    </encounters>
+    <providers>
+        <provider id="123abc" path="abc" lastFirstName="Doe, Jane" />
+        <provider id="123def" path="def" lastFirstName="Doe, John" />
+    </providers>
+    <observations>
+        <observation id="123def" patientId="abc123" encounterId="abc123" providerId="abc123" conceptCode="123abc" datetime="2010-01-01" location="abc" value="123" />
+        <observation id="123def" patientId="abc123" encounterId="abc123" providerId="abc123" conceptCode="123abc" datetime="2010-01-01" location="def" value="" />
+    </observations>
+    
+    
+    
+</o2i2b2>

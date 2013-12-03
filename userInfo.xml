@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="userInfo">
+	<item value="xe" key="metadata-db-database"/>
+	<item value="1521" key="starschema-db-port"/>
+	<item value="192.168.222.230" key="metadata-db-host"/>
+	<item value="demouser" key="starschema-db-password"/>
+	<item value="Stephen Lorenz" key="customer-name"/>
+	<item value="Oracle" key="metadata-db-type"/>
+	<item value="i2b2metadata" key="metadata-db-username"/>
+	<item value="10 Merril&#x0D;&#x0A;&#x0D;&#x0A;&#x0D;&#x0A;" key="customer-address"/>
+	<item value="987-323-3432" key="customer-phone"/>
+	<item value="192.168.222.230" key="starschema-db-host"/>
+	<item value="i2b2demodata" key="starschema-db-username"/>
+	<item value="1521" key="metadata-db-port"/>
+	<item value="C:\Users\slorenz\Desktop\SMALL2.xml" key="import-file-path"/>
+	<item value="xe" key="starschema-db-database"/>
+	<item value="slorenz@northshore.edu" key="customer-email"/>
+	<item value="Oracle" key="starschema-db-type"/>
+	<item value="demouser" key="metadata-db-password"/>
+</section>
